@@ -36,6 +36,7 @@ export class AppComponent {
   getHeroes(): void {
     //this.heroes = this._heroService.getHeroes();    //before Promise
     this._heroService.getHeroes().then(heroes => this.heroes = heroes); //with promise
+    //this._heroService.getHeroesSlowly().then(heroes => this.heroes = heroes); //with promise slow
   }
 
 
