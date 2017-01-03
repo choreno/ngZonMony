@@ -8,10 +8,17 @@ import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+
+import { HeroService } from './hero.service';
+import { ExpenseService } from './expense.service';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeroDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +26,7 @@ import { AppComponent } from './app.component';
     HttpModule,
     MaterialModule.forRoot()
   ],
-  providers: [],
+  providers: [HeroService, ExpenseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

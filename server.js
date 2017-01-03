@@ -37,9 +37,3 @@ const server = http.createServer(app);
 
 //listen on provided port, on all network inteface
 server.listen(port, ()=> console.log('ngZonMony running on localhost:' + port));
-
-
-
-
-
-
