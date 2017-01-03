@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 //angular material
 import { MaterialModule } from '@angular/material';
-
+import 'hammerjs';
 
 import { AppComponent } from './app.component';
 
