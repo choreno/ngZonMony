@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
     //this._heroService.getHeroes().then(heroes => this.heroes = heroes.slice(1,5));  //by Promise
 
     //Observable
-    this._heroService.getHeroes().subscribe(heroes => this.heroes = heroes,
+    this._heroService.getHeroes().subscribe(heroes => this.heroes = heroes.slice(1,5),
     err=>console.log('err:' + err),
     ()=>console.log('done loading Heroes')
     )
