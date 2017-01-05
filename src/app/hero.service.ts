@@ -20,8 +20,14 @@ export class HeroService {
   // }
 
 
+  // getHeroes(): Observable<Hero[]> {
+  //   return this._http.get('/app/heroData.json')
+  //     .map(response => response.json());
+
+  // }
+
   getHeroes(): Observable<Hero[]> {
-    return this._http.get('/app/heroData.json')
+    return this._http.get('/api/heroes')
       .map(response => response.json());
 
   }

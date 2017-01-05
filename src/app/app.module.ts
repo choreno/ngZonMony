@@ -14,6 +14,10 @@ import { ExpenseService } from './expense.service';
 //Routings
 import { RoutingModule } from './routing/routing.module';
 
+//InMemory Web API
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+
 //Components
 import { AppComponent } from './app.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
@@ -35,7 +39,9 @@ import { HeroesComponent } from './heroes/heroes.component';
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
-    RoutingModule
+    RoutingModule,
+    // InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 0 }),    // no delay
+    InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1500 }), // 1.5 second delay
   ],
   providers: [HeroService, ExpenseService],
   bootstrap: [AppComponent]
