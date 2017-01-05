@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 
 
 import { Hero } from '../hero';
-
 import { HeroService } from '../hero.service';
+import { Observable } from 'rxjs/Observable';
+
+
+
 import { ExpenseService } from '../expense.service';
 import { Expense } from '../mock-expenses';
 
@@ -16,7 +19,7 @@ import { Expense } from '../mock-expenses';
 })
 export class HeroesComponent implements OnInit {
 
-   constructor
+  constructor
     (
     private _heroService: HeroService,
     private _expenseService: ExpenseService
@@ -34,8 +37,21 @@ export class HeroesComponent implements OnInit {
 
   getHeroes(): void {
     //this.heroes = this._heroService.getHeroes();    //before Promise
-    this._heroService.getHeroes().then(heroes => this.heroes = heroes); //with promise
+    //this._heroService.getHeroes().then(heroes => this.heroes = heroes); //with promise
     //this._heroService.getHeroesSlowly().then(heroes => this.heroes = heroes); //with promise slow
+
+    //Observable
+    this._heroService.getHeroes().subscribe(
+      //success
+      heroes => this.heroes = heroes,
+      //error
+      error => console.log('err:' + error),
+      //completed
+      () => console.log('done loading heroes')
+    );
+
+
+
   }
 
 
@@ -48,8 +64,16 @@ export class HeroesComponent implements OnInit {
 
   expenses: Expense[];
 
+  // getExpenses(): void {
+  //   this._expenseService.getExpenses().then(x => this.expenses = x);
+  // }
+
   getExpenses(): void {
-    this._expenseService.getExpenses().then(x => this.expenses = x);
+    this._expenseService.getExpenses().subscribe(
+      expenses => this.expenses = expenses,
+      err => console.log(err),
+      () => console.log('success loading expenses'));
+
   }
 
 
