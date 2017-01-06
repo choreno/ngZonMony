@@ -3,8 +3,8 @@ import { Hero } from './hero';
 import { HEROES } from './mock-heroes';
 
 import { Observable } from 'rxjs/Observable';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+import { Http, Headers, RequestOptions } from '@angular/http';
+//import 'rxjs/add/operator/map';
 //import {Http, Response, Headers, RequestOptions} from "@angular/http";
 
 
@@ -12,8 +12,46 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class HeroService {
 
+  //private headers = new Headers({'Content-type': 'application/json'}); 
+
+  private headers = new Headers({ 'Content-Type': 'application/json', 'charset': 'UTF-8' });
+  private options = new RequestOptions({ headers: this.headers });
+
+
 
   constructor(private _http: Http) { }
+
+
+  create(name:string):Observable<any>{
+    return this._http.post('api/heroes', JSON.stringify({name: name}), this.options) ; 
+  }
+
+
+  // create(name: string): Promise<Hero> {
+  //   return this._http
+  //     .post('api/heroes', JSON.stringify({ name: name }), { headers: this.headers })
+  //     .toPromise()
+  //     .then(res => res.json().data)
+  //     .catch(this.handleError);
+  // }
+
+//  private handleError(error: any): Promise<any> {
+//     console.error('An error occurred', error); // for demo purposes only
+//     return Promise.reject(error.message || error);
+//   }
+
+
+
+
+  update(hero: Hero): Observable<any> {
+
+    const url = 'api/heroes/' + hero.id;
+
+    //return this._http.put(url, JSON.stringify(hero), {headers: this.headers})
+    return this._http.put(url, JSON.stringify(hero), this.options);
+
+
+  }
 
   // getHeroes(): Promise<Hero[]> {
   //   return Promise.resolve(HEROES);
@@ -46,7 +84,7 @@ export class HeroService {
 
     const _url = 'api/heroes/' + id;
     return this._http.get(_url)
-    .map(response => response.json().data);
+      .map(response => response.json().data);
 
   }
 

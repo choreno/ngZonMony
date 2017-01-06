@@ -53,11 +53,31 @@ export class HeroesComponent implements OnInit {
 
   }
 
-  gotoDetail():void {
+  gotoDetail(): void {
 
-    this._router.navigate(['/detail',this.selectedHero.id]);
+    this._router.navigate(['/detail', this.selectedHero.id]);
   }
 
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this._heroService.create(name)
+      .subscribe(
+      hero => this.heroes.push(hero),
+      err => console.log(err),
+      () => this.selectedHero = null);
+  }
+
+
+  // add(name: string): void {
+  //     name = name.trim();
+  //     if (!name) { return; }
+  //     this._heroService.create(name)
+  //       .then(hero => {
+  //         this.heroes.push(hero);
+  //         this.selectedHero = null;
+  //       });
+  //   }
 
   ngOnInit(): void {
     this.getHeroes();
@@ -79,6 +99,9 @@ export class HeroesComponent implements OnInit {
       () => console.log('success loading expenses -- herocomponent'));
 
   }
+
+
+
 
 
 }

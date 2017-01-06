@@ -4,7 +4,7 @@ export class InMemoryDataService implements InMemoryDbService {
 
     createDb() {
 
-       let heroes = [
+        let heroes = [
 
             { id: 11, name: 'Mr.Nice' },
             { id: 12, name: 'Narco' },
@@ -33,6 +33,13 @@ export class InMemoryDataService implements InMemoryDbService {
                         "amount": 1600,
                         "note": "for this month",
                         "paymentDTTM": new Date(),
+                        "createdDTTM": new Date(),
+                        "updatedDTTM": new Date()
+                    },
+                    {
+                        "amount": 1599.09,
+                        "note": "for last month",
+                        "paymentDTTM": new Date('3/25/2016'),
                         "createdDTTM": new Date(),
                         "updatedDTTM": new Date()
                     }
