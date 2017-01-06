@@ -39,8 +39,14 @@ export class HeroService {
 
   getHero(id: number): Observable<any> {
 
-    return this.getHeroes()
-      .map(response => response.find(hero=>hero.id == id)) ;
+    // return this.getHeroes()
+    //   .map(response => response.find(hero=>hero.id == id)) ;
+
+    //OR
+
+    const _url = 'api/heroes/' + id;
+    return this._http.get(_url)
+    .map(response => response.json().data);
 
   }
 

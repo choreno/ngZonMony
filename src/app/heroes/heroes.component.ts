@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { Observable } from 'rxjs/Observable';
-
+import { Router } from '@angular/router';
 
 
 import { ExpenseService } from '../expense.service';
@@ -22,7 +22,8 @@ export class HeroesComponent implements OnInit {
   constructor
     (
     private _heroService: HeroService,
-    private _expenseService: ExpenseService
+    private _expenseService: ExpenseService,
+    private _router: Router
     )
   { }
 
@@ -50,8 +51,11 @@ export class HeroesComponent implements OnInit {
       () => console.log('done loading heroes --Herocomponent')
     );
 
+  }
 
+  gotoDetail():void {
 
+    this._router.navigate(['/detail',this.selectedHero.id]);
   }
 
 

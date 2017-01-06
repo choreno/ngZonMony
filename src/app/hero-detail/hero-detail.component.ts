@@ -28,12 +28,12 @@ export class HeroDetailComponent implements OnInit {
 
   ngOnInit() {
 
-
+    
     this._route.params.switchMap(params => this._heroService.getHero(+params['id']))
       .subscribe(
       hero => this.hero = hero,
       err => console.log(err),
-      () => console.log('get a hero:' + this.hero)
+      () => console.log('get a hero:' + this.hero) // doesn't work ????
       );
   }
 
