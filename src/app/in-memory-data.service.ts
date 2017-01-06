@@ -60,7 +60,7 @@ export class InMemoryDataService implements InMemoryDbService {
                     }
 
                 ],
-                "createdDTTM": "2015-05-01T05:00:00.000Z",
+                "createdDTTM": new Date(),
                 "updatedDTTM": new Date()
             }
 
@@ -72,6 +72,7 @@ export class InMemoryDataService implements InMemoryDbService {
         ];
 
         return { expenses, heroes };
+        //return { heroes };
 
     }
 

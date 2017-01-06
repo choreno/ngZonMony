@@ -11,7 +11,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class DashboardComponent implements OnInit {
 
-  heroes: Hero[] = []; 
+  heroes:Hero[];
 
   constructor(private _heroService: HeroService) { }
 
@@ -20,9 +20,10 @@ export class DashboardComponent implements OnInit {
     //this._heroService.getHeroes().then(heroes => this.heroes = heroes.slice(1,5));  //by Promise
 
     //Observable
+    
     this._heroService.getHeroes().subscribe(heroes => this.heroes = heroes.slice(1,5),
     err=>console.log('err:' + err),
-    ()=>console.log('done loading Heroes')
+    ()=>console.log('done loading Heroes -- Dashboard')
     )
 
   }

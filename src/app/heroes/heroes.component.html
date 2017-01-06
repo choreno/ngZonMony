@@ -38,11 +38,13 @@
             <md-card-content>
                 <label for="">Note:</label>{{expense.tabNote}}
                 <br>
-                <label for="">URL: </label><a href="{{expense.url}}">{{expense.url}}</a>   
+                <div *ngIf="expense.url">
+                <label for="" >URL: </label><a href="{{expense.url}}">{{expense.url}}</a>   
                 <br>
+                </div>
                 <label for="">CREATED DTTM: </label> {{expense.createdDTTM | date:"short"}}
                 <li *ngFor="let p of expense.payments">
-                    {{p.amount}}
+                    {{p.amount | currency:'USD':true  }}
                 </li>
             </md-card-content>
             <md-card-actions align="end">

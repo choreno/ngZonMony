@@ -47,7 +47,7 @@ export class HeroesComponent implements OnInit {
       //error
       error => console.log('err:' + error),
       //completed
-      () => console.log('done loading heroes')
+      () => console.log('done loading heroes --Herocomponent')
     );
 
 
@@ -70,9 +70,9 @@ export class HeroesComponent implements OnInit {
 
   getExpenses(): void {
     this._expenseService.getExpenses().subscribe(
-      expenses => this.expenses = expenses,
+      response => this.expenses = response,
       err => console.log(err),
-      () => console.log('success loading expenses'));
+      () => console.log('success loading expenses -- herocomponent'));
 
   }
 

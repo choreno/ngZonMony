@@ -16,7 +16,7 @@ export class HeroService {
   constructor(private _http: Http) { }
 
   // getHeroes(): Promise<Hero[]> {
-  //   return Promise.resolve(HEROES); 
+  //   return Promise.resolve(HEROES);
   // }
 
 
@@ -26,18 +26,31 @@ export class HeroService {
 
   // }
 
-  getHeroes(): Observable<Hero[]> {
-    return this._http.get('/api/heroes')
-      .map(response => response.json());
+
+  //In memory  -- ## must add data at the end of json()
+  getHeroes(): Observable<any> {
+
+    return this._http.get('api/heroes')
+      .map(response => response.json().data);
 
   }
 
 
-  getHeroesSlowly(): Promise<Hero[]> {
-    return new Promise(x => {
-      setTimeout(() => x(this.getHeroes()), 2000);
-    })
+
+  getHero(id: number): Observable<any> {
+
+    return this.getHeroes()
+      .map(response => response.find(hero=>hero.id == id)) ;
+
   }
+
+
+
+  // getHeroesSlowly(): Promise<Hero[]> {
+  //   return new Promise(x => {
+  //     setTimeout(() => x(this.getHeroes()), 2000);
+  //   })
+  // }
 
 }
 

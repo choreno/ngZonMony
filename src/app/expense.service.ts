@@ -5,6 +5,8 @@ import { Expense } from './mock-expenses';
 import { Observable } from 'rxjs/Observable';
 import { Http } from '@angular/http';
 
+
+
 @Injectable()
 export class ExpenseService {
 
@@ -30,9 +32,9 @@ export class ExpenseService {
 
 private baseUrl = 'api/expenses'
 
-getExpenses(): Observable<Expense[]> {
+getExpenses(): Observable<any> {
   return this._http.get(`${this.baseUrl}`)
-      .map(response => response.json());
+      .map(response => response.json().data);
 
     
   }

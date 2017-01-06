@@ -41,7 +41,7 @@ import { HeroesComponent } from './heroes/heroes.component';
     MaterialModule.forRoot(),
     RoutingModule,
     // InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 0 }),    // no delay
-    InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1500 }), // 1.5 second delay
+    InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 0 }), // 1.5 second delay, 1500
   ],
   providers: [HeroService, ExpenseService],
   bootstrap: [AppComponent]
