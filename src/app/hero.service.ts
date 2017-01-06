@@ -22,8 +22,11 @@ export class HeroService {
   constructor(private _http: Http) { }
 
 
+  // create(name:string):Observable<any>{
+  //   return this._http.post('api/heroes', JSON.stringify({name: name}), this.options) ; 
+  // }
   create(name:string):Observable<any>{
-    return this._http.post('api/heroes', JSON.stringify({name: name}), this.options) ; 
+    return this._http.post('api/heroes', JSON.stringify(hero), this.options) ; 
   }
 
 
