@@ -58,15 +58,34 @@ export class HeroesComponent implements OnInit {
     this._router.navigate(['/detail', this.selectedHero.id]);
   }
 
-  add(name: string): void {
-    name = name.trim();
+  add(name: any): void {
+
+    var newHero = new Hero();
+    newHero.name = name; 
+    newHero.id = 55; 
+    
     if (!name) { return; }
-    this._heroService.create(name)
+    this._heroService.create(newHero)
       .subscribe(
-      hero => this.heroes.push(hero),
+      hero => {
+        
+        this.heroes.push(newHero);
+      },
       err => console.log(err),
       () => this.selectedHero = null);
   }
+
+
+
+// create(todo: Todo) {
+//     this.http.post(`${this.baseUrl}/todos`, JSON.stringify(todo))
+//       .map(response => response.json()).subscribe(data => {
+//         this.dataStore.todos.push(data);
+//         this._todos.next(Object.assign({}, this.dataStore).todos);
+//       }, error => console.log('Could not create todo.'));
+//   }
+
+
 
 
   // add(name: string): void {

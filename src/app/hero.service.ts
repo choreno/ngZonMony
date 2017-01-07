@@ -25,9 +25,19 @@ export class HeroService {
   // create(name:string):Observable<any>{
   //   return this._http.post('api/heroes', JSON.stringify({name: name}), this.options) ; 
   // }
-  create(name:string):Observable<any>{
-    return this._http.post('api/heroes', JSON.stringify(hero), this.options) ; 
+  create(hero:Hero):Observable<any>{
+    return this._http.post('api/heroes', JSON.stringify(hero), this.options)
+    .map(response => response.json().data) ; 
   }
+
+
+// create(todo: Todo) {
+//     this.http.post(`${this.baseUrl}/todos`, JSON.stringify(todo))
+//       .map(response => response.json()).subscribe(data => {
+//         this.dataStore.todos.push(data);
+//         this._todos.next(Object.assign({}, this.dataStore).todos);
+//       }, error => console.log('Could not create todo.'));
+//   }
 
 
   // create(name: string): Promise<Hero> {
