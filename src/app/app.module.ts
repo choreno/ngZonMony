@@ -8,32 +8,32 @@ import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 
 //Services
-import { HeroService } from './hero.service';
-import { ExpenseService } from './expense.service';
+import { ExpenseService } from './services/expense.service';
 
 //Routings
 import { RoutingModule } from './routing/routing.module';
 
 //InMemory Web API
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
+import { ExpenseDb } from './db/expense.db';
+
+//rxjs
+import './rxjs/rxjs-extensions';
+
 
 //Components
 import { AppComponent } from './app.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeroesComponent } from './heroes/heroes.component';
-
-
-import './rxjs-extensions';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroDetailComponent,
     DashboardComponent,
-    HeroesComponent
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,9 +42,9 @@ import './rxjs-extensions';
     MaterialModule.forRoot(),
     RoutingModule,
     // InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 0 }),    // no delay
-    InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 0 }), // 1.5 second delay, 1500
+    InMemoryWebApiModule.forRoot(ExpenseDb, { delay: 0 }), // 1.5 second delay, 1500
   ],
-  providers: [HeroService, ExpenseService],
+  providers: [ExpenseService],
   bootstrap: [AppComponent]
 })
 

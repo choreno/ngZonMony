@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
+
 import { Observable } from 'rxjs/Observable';
+import { ExpenseService } from '../services/expense.service';
+import { IExpense } from '../interfaces/expense.interface';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,21 +12,20 @@ import { Observable } from 'rxjs/Observable';
 })
 export class DashboardComponent implements OnInit {
 
-  heroes:Hero[];
+  expenses: IExpense[];
 
-  constructor(private _heroService: HeroService) { }
+  constructor(private _expenseService: ExpenseService) { }
 
   ngOnInit() {
 
-    //this._heroService.getHeroes().then(heroes => this.heroes = heroes.slice(1,5));  //by Promise
-
-    //Observable
-    
-    this._heroService.getHeroes().subscribe(heroes => this.heroes = heroes.slice(1,5),
-    err=>console.log('err:' + err),
-    ()=>console.log('done loading Heroes -- Dashboard')
-    )
+    this._expenseService.getAllExpenses().subscribe(
+      response => this.expenses = response,
+      err => console.log(err),
+      () => console.log('success loading expenses db'));
 
   }
 
+
 }
+
+
