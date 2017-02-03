@@ -23,3 +23,13 @@ export class IPayment {
     updatedDTTM: Date;
 
 }
+
+
+export interface IGroupExpenses{
+    folderName: string;
+    expenses: IExpense[];
+}
+
+//Tony
+//how diffrent class and inteface ????
+//Can I change class to interface???

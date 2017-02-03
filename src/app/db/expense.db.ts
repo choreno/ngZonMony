@@ -93,7 +93,29 @@ export class ExpenseDb implements InMemoryDbService {
                 ],
                 createdDTTM: new Date(),
                 updatedDTTM: new Date(),
-            }
+            },
+            {
+                id: 5,
+                folderName: 'Utility',
+                tabName: 'Verizon',
+                tabNote: 'Mobile Commnunication',
+                dueDate: 30,
+                url: 'http://verizonwireless.com',
+                status: true,
+                isPaidByCreditCard: true,
+                payments: [
+                    {
+                        amount: 145,
+                        note: '#123213123213215801',
+                        paymentDTTM: new Date(),
+                        createdDTTM: new Date(),
+                        updatedDTTM: new Date(),
+                    }
+
+                ],
+                createdDTTM: new Date(),
+                updatedDTTM: new Date(),
+            },
         ]
 
 

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
 import { ExpenseService } from '../services/expense.service';
-import { IExpense } from '../interfaces/expense.interface';
+import { IExpense, IGroupExpenses } from '../interfaces/expense.interface';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,6 +14,8 @@ export class DashboardComponent implements OnInit {
 
   expenses: IExpense[];
 
+  groupExpenses: IGroupExpenses[];
+   
   constructor(private _expenseService: ExpenseService) { }
 
   ngOnInit() {
