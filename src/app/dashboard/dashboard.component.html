@@ -6,17 +6,16 @@
     </div>
   </div>
 </div>-->
-
-
 <!--<h2>My Expenses</h2>-->
 
+<app-groupingTest [data]='expenses'></app-groupingTest>    
+
+
+
+
+<h2>My Expenses</h2>
+
 <div *ngFor="let expense of expenses">
-
-
-  <!--Adding group here!!-->
-
-
-
   <md-card>
     <md-card-subtitle>{{expense.folderName}}</md-card-subtitle>
     <md-card-title>{{expense.tabName}}</md-card-title>
@@ -37,8 +36,5 @@
       <button md-raised-button color="accent">SHARE</button>
     </md-card-actions>
   </md-card>
-
   <br>
-
 </div>
-

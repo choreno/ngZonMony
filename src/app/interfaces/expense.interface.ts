@@ -1,4 +1,4 @@
-export class IExpense {
+export interface IExpense {
 
     id: number;
     folderName: string;
@@ -14,7 +14,7 @@ export class IExpense {
 
 }
 
-export class IPayment {
+export interface IPayment {
 
     amount: number;
     note: string;
@@ -30,6 +30,3 @@ export interface IGroupExpenses{
     expenses: IExpense[];
 }
 
-//Tony
-//how diffrent class and inteface ????
-//Can I change class to interface???

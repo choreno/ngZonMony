@@ -14,9 +14,9 @@ export class DashboardComponent implements OnInit {
 
   expenses: IExpense[];
 
-  groupExpenses: IGroupExpenses[];
+  // groupExpenses: IGroupExpenses[];
    
-  constructor(private _expenseService: ExpenseService) { }
+  constructor(private _expenseService: ExpenseService) {}
 
   ngOnInit() {
 
@@ -25,7 +25,29 @@ export class DashboardComponent implements OnInit {
       err => console.log(err),
       () => console.log('success loading expenses db'));
 
+    // this.groupExpenses = this.getAllExpensesByFolderName(this.expenses);
+    
+    //this.groupExpenses = this.groupByFolderName(this.expenses);
   }
+
+
+  // getAllExpensesByFolderName(expense: IExpense[]):IGroupExpenses[] {
+
+  //     if(!expense) return; 
+
+  //     const folderNames = new Set(expense.map(x=>x.folderName));
+  //     const result = Array.from(folderNames).map(x=>({
+  //       folderName: x, 
+  //       expenses: expense.filter(expense=>expense.folderName == x)
+  //     }));
+
+  //   return result;
+
+  // }
+
+
+
+
 
 
 }
