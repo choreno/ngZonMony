@@ -3,10 +3,28 @@
 <div>
     <div *ngFor="let group of groupExpenses">
         <md-card>
-            <md-card-subtitle>{{group.folderName}}</md-card-subtitle>
+            <md-card-subtitle>
+                {{group.folderName}}
+            </md-card-subtitle>
             <div *ngFor="let expense of group.expenses">
-                <md-card-title>{{expense.tabName}}</md-card-title>
+                <md-card-title>
+                    {{expense.tabName}}
+                </md-card-title>
                 <md-card-content>
+                    <!--<md-input-container>
+                        <label>Enter date</label>
+                        <md-datepicker ng-model="user.submissionDate"></md-datepicker>
+                    </md-input-container>-->
+
+                    <md-input-container>
+                        <input md-input placeholder="Favorite food" value="Sushi">
+                    </md-input-container>
+
+                    <md-input placeholder="amount" align="end">
+                        <span md-prefix>$&nbsp;</span>
+                        <!--<span md-suffix>.00</span>-->
+                    </md-input>
+
                     <label for="">Note:</label>{{expense.tabNote}}
                     <br>
                     <div *ngIf="expense.url">
