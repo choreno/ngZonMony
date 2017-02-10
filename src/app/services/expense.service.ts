@@ -7,11 +7,9 @@ import { IExpense, IGroupExpenses } from '../interfaces/expense.interface';
 @Injectable()
 export class ExpenseService {
 
-
+    private baseUrl = 'api/expenses';
 
     constructor(private _http: Http) { }
-
-    private baseUrl = 'api/expenses'
 
     getAllExpenses(): Observable<any> {
         return this._http.get(`${this.baseUrl}`)
@@ -22,12 +20,15 @@ export class ExpenseService {
 
     getAllExpensesByFolderName(expense: IExpense[]): IGroupExpenses[] {
 
-        if (!expense) return;
+        if (!expense) {
+            return;
+        }
 
         const folderNames = new Set(expense.map(x => x.folderName));
         const result = Array.from(folderNames).map(x => ({
             folderName: x,
-            expenses: expense.filter(expense => expense.folderName == x)
+            // tslint:disable-next-line:no-shadowed-variable
+            expenses: expense.filter(expense => expense.folderName === x)
         }));
 
         return result;

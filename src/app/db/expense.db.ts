@@ -4,7 +4,10 @@ import { IExpense } from '../interfaces/expense.interface';
 
 export class ExpenseDb implements InMemoryDbService {
 
+
+
     createDb() {
+
         let expenses: IExpense[] = [
             {
                 id: 1,
@@ -22,7 +25,22 @@ export class ExpenseDb implements InMemoryDbService {
                         paymentDTTM: new Date(),
                         createdDTTM: new Date(),
                         updatedDTTM: new Date(),
-                    }
+                    },
+                    {
+                        amount: 1500,
+                        note: 'for two months ago',
+                        paymentDTTM: new Date('1/1//2017'),
+                        createdDTTM: new Date('1/1//2017'),
+                        updatedDTTM: new Date('1/1//2017'),
+                    },
+                    {
+                        amount: 1400,
+                        note: 'for two months ago',
+                        paymentDTTM: new Date('12/1//2016'),
+                        createdDTTM: new Date('12/1//2016'),
+                        updatedDTTM: new Date('12/1//2016'),
+                    },
+
 
                 ],
                 createdDTTM: new Date(),

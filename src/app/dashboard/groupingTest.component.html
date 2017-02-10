@@ -20,11 +20,16 @@
                         <input md-input placeholder="Favorite food" value="Sushi">
                     </md-input-container>
 
-                    <md-input placeholder="amount" align="end">
+                    <md-input placeholder="Amount" align="end">
                         <span md-prefix>$&nbsp;</span>
                         <!--<span md-suffix>.00</span>-->
                     </md-input>
+                    <br>
+                    <md-input-container>
+                        <textarea md-input placeholder="Note" style="width:500px">{{expense.tabNote}}</textarea>
+                    </md-input-container>
 
+                    <br>
                     <label for="">Note:</label>{{expense.tabNote}}
                     <br>
                     <div *ngIf="expense.url">

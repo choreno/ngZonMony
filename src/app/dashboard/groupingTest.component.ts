@@ -17,12 +17,15 @@ export class GroupingTestComponent implements OnInit {
 
   groupExpenses: IGroupExpenses[];
 
+
+
   constructor(private _expenseService: ExpenseService) { }
 
 
   ngOnInit() {
 
      this.groupExpenses = this._expenseService.getAllExpensesByFolderName(this.data);
+
 
   }
 
