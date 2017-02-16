@@ -210,7 +210,7 @@ export class ExpenseDb implements InMemoryDbService {
                 id: 3,
                 folderName: 'Utility',
                 tabName: 'GRU',
-                tabNote: 'The eletric power privider in Gainesville',
+                tabNote: 'The eletric power provider in Gainesville',
                 dueDate: 15,
                 url: 'http://www.gru.com',
                 status: true,

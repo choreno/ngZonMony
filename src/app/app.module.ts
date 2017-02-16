@@ -18,7 +18,12 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { ExpenseDb } from './db/expense.db';
 
 //rxjs
-import './rxjs/rxjs-extensions';
+//import './rxjs/rxjs-extensions';
+
+
+// rxjs - gat all rxjs library???
+ //import * as Rx from 'rxjs/Rx';
+
 
 
 //Components
@@ -37,7 +42,8 @@ import { FooterComponent } from './footer/footer.component';
     DashboardComponent,
     HeaderComponent,
     FooterComponent,
-    GroupingTestComponent
+    GroupingTestComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -47,6 +53,7 @@ import { FooterComponent } from './footer/footer.component';
     RoutingModule,
     // InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 0 }),    // no delay
     InMemoryWebApiModule.forRoot(ExpenseDb, { delay: 0 }), // 1.5 second delay, 1500
+    
   ],
   providers: [ExpenseService],
   bootstrap: [AppComponent]

@@ -3,6 +3,8 @@ import { Observable } from 'rxjs/Observable';
 import { Http } from '@angular/http';
 import { IExpense, IGroupExpenses } from '../interfaces/expense.interface';
 
+// import rxjs all library
+import * as Rx from 'rxjs/Rx';
 
 @Injectable()
 export class ExpenseService {
@@ -32,6 +34,11 @@ export class ExpenseService {
         }));
 
         return result;
+    }
+
+    getTotalExpenses(): Observable<any> {
+
+        return this.getAllExpenses();
     }
 
 
