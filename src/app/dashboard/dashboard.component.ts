@@ -38,11 +38,21 @@ export class DashboardComponent implements OnInit {
 
       this._expenseService.getAllExpenses()
       .map(x => [].concat(...x.map(y => y.payments)))
+      .map(x => x.map(y => y.amount))
+      .map(x => x.reduce( (y,z) => y + z))
       .subscribe(
       x => console.log(x),
       err => console.log(err),
       () => console.log('success loading sum???'));
 
+
+      // this._expenseService.getAllExpenses()
+      // .map(x => [].concat(...x.map(y => y.payments)))
+      // .map(x => x.map(y => y.amount))
+      // .subscribe(
+      // x => console.log(JSON.stringify(x,null,2)),
+      // err => console.log(err),
+      // () => console.log('success loading sum???'));
 
 
 

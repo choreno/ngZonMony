@@ -15,9 +15,17 @@ export class ExpenseService {
 
     getAllExpenses(): Observable<any> {
         return this._http.get(`${this.baseUrl}`)
-            .map(response => response.json().data);
+             .map(response => response.json().data);
+
 
     }
+
+    // getAllExpenses(): Observable<IExpense[]> {
+    //     return this._http.get(`${this.baseUrl}`)
+    //         .map(response => response.json() as IExpense[]);
+
+    //}
+
 
 
     getAllExpensesByFolderName(expense: IExpense[]): IGroupExpenses[] {
