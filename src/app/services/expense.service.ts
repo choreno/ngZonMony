@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http } from '@angular/http';
-import { IExpense, IGroupExpenses } from '../interfaces/expense.interface';
+import { IExpense, IGroupExpenses, IPayment } from '../interfaces/expense.interface';
 
 // import rxjs all library
 import * as Rx from 'rxjs/Rx';
@@ -29,17 +29,18 @@ export class ExpenseService {
         const folderNames = new Set(expense.map(x => x.folderName));
         const result = Array.from(folderNames).map(x => ({
             folderName: x,
-            // tslint:disable-next-line:no-shadowed-variable
-            expenses: expense.filter(expense => expense.folderName === x)
+            expenses: expense.filter(exp => exp.folderName === x)
         }));
 
         return result;
     }
 
-    getTotalExpenses(): Observable<any> {
+    // getPayments(expense: IExpense[]):IPayment[] {
 
-        return this.getAllExpenses();
-    }
+    //     const result = expense.map(x => x.payments);
+
+    //     return  result ;
+    // }
 
 
 }

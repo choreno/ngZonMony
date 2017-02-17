@@ -22,7 +22,9 @@ import { ExpenseDb } from './db/expense.db';
 
 
 // rxjs - gat all rxjs library???
- //import * as Rx from 'rxjs/Rx';
+// import * as Rx from 'rxjs/Rx';
+// import 'rxjs/Rx'; -- correct expression
+
 
 
 
