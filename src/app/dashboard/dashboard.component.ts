@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(private _expenseService: ExpenseService) {
 
-   }
+  }
 
   ngOnInit() {
 
@@ -34,25 +34,25 @@ export class DashboardComponent implements OnInit {
       err => console.log(err),
       () => console.log('success loading expenses db'));
 
-      // this.clock.subscribe( x => console.log(x));
+    // this.clock.subscribe( x => console.log(x));
 
-      this._expenseService.getAllExpenses()
+    this._expenseService.getAllExpenses()
       .map(x => [].concat(...x.map(y => y.payments)))
       .map(x => x.map(y => y.amount))
-      .map(x => x.reduce( (y,z) => y + z))
+      .map(x => x.reduce((acc, curr) => acc + curr))
       .subscribe(
       x => console.log(x),
       err => console.log(err),
       () => console.log('success loading sum???'));
 
 
-      // this._expenseService.getAllExpenses()
-      // .map(x => [].concat(...x.map(y => y.payments)))
-      // .map(x => x.map(y => y.amount))
-      // .subscribe(
-      // x => console.log(JSON.stringify(x,null,2)),
-      // err => console.log(err),
-      // () => console.log('success loading sum???'));
+    // this._expenseService.getAllExpenses()
+    // .map(x => [].concat(...x.map(y => y.payments)))
+    // .map(x => x.map(y => y.amount))
+    // .subscribe(
+    // x => console.log(JSON.stringify(x,null,2)),
+    // err => console.log(err),
+    // () => console.log('success loading sum???'));
 
 
 
