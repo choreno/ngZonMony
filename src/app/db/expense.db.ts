@@ -29,9 +29,9 @@ export class ExpenseDb implements InMemoryDbService {
                     {
                         amount: 1599.09,
                         note: 'Feb',
-                        paymentDTTM: new Date('2/1//2017'),
-                        createdDTTM: new Date('2/1//2017'),
-                        updatedDTTM: new Date('2/1//2017'),
+                        paymentDTTM: new Date('2/1//2016'),
+                        createdDTTM: new Date('2/1//2016'),
+                        updatedDTTM: new Date('2/1//2016'),
                     },
                     {
                         amount: 1599.09,
@@ -128,9 +128,9 @@ export class ExpenseDb implements InMemoryDbService {
                     {
                         amount: 81,
                         note: 'Feb',
-                        paymentDTTM: new Date('2/1//2017'),
-                        createdDTTM: new Date('2/1//2017'),
-                        updatedDTTM: new Date('2/1//2017'),
+                        paymentDTTM: new Date('2/1//2016'),
+                        createdDTTM: new Date('2/1//2016'),
+                        updatedDTTM: new Date('2/1//2016'),
                     },
                     {
                         amount: 81,
@@ -217,7 +217,7 @@ export class ExpenseDb implements InMemoryDbService {
                 isPaidByCreditCard: true,
                 payments: [
                     {
-                        amount: 194,
+                        amount: 194.01,
                         note: '#5801',
                         paymentDTTM: new Date(),
                         createdDTTM: new Date(),
@@ -239,8 +239,8 @@ export class ExpenseDb implements InMemoryDbService {
                 isPaidByCreditCard: false,
                 payments: [
                     {
-                        amount: 2845,
-                        note: '#5801',
+                        amount: 2845.03,
+                        note: '#5666',
                         paymentDTTM: new Date(),
                         createdDTTM: new Date(),
                         updatedDTTM: new Date(),
@@ -261,7 +261,7 @@ export class ExpenseDb implements InMemoryDbService {
                 isPaidByCreditCard: true,
                 payments: [
                     {
-                        amount: 145,
+                        amount: 145.01,
                         note: '#123213123213215801',
                         paymentDTTM: new Date(),
                         createdDTTM: new Date(),

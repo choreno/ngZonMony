@@ -21,7 +21,14 @@ export class DashboardComponent implements OnInit {
 
   expenses: IExpense[];
 
-  payment: Number;
+  totalPayment: Number;
+  paymentForThisMonth: Number;
+
+  currentMonth:Number =  1 ; //current month = October
+  currentYear: Number = 2017 ;
+
+  
+
 
   constructor(private _expenseService: ExpenseService) {
 
@@ -41,11 +48,31 @@ export class DashboardComponent implements OnInit {
       .map(x => x.map(y => y.amount))
       .map(x => x.reduce((acc, curr) => acc + curr))
       .subscribe(
-      x => console.log(x),
+      x => this.totalPayment = x,
       err => console.log(err),
-      () => console.log('success loading sum???'));
+      () => console.log('success loading total!'));
 
+    this._expenseService.getAllExpenses()
+    .map(x => [].concat(...x.map(y => y.payments)))
+    .map(x => x.filter((y) => {
+      
+      //convert json date object to real date object
+      const date = new Date(y.paymentDTTM);
+      const month = date.getMonth();
+      const year = date.getFullYear();
+      
+      return month === this.currentMonth && year === this.currentYear;  
+    }))
+    .do(x => console.log(JSON.stringify(x,null,2)))
+    .map(x =>x.map(y=>y.amount))
+    .map(x => x.reduce((acc, curr) => acc + curr))
+    .subscribe(
+      // x => console.log(JSON.stringify(x,null,2)),
+      x => this.paymentForThisMonth = x,
+      err => console.log(err),
+      () => console.log('success loading current payment!'));
 
+    
     // this._expenseService.getAllExpenses()
     // .map(x => [].concat(...x.map(y => y.payments)))
     // .map(x => x.map(y => y.amount))
@@ -83,6 +110,11 @@ export class DashboardComponent implements OnInit {
 
 
 }
+
+
+
+
+
 
 // //emit value every 1 second
 // const oneSecondInterval = Rx.Observable.interval(1000);
