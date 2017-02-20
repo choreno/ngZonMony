@@ -24,9 +24,14 @@ export interface IPayment {
 
 }
 
-
-export interface IGroupExpenses{
+export interface IGroupExpenses {
     folderName: string;
     expenses: IExpense[];
 }
 
+
+export interface ITotalAmounts {
+
+    year: number;
+    month: number;
+}
