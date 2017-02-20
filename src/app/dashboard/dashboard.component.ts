@@ -24,15 +24,6 @@ export class DashboardComponent implements OnInit {
   totalAmounts: ITotalAmounts;
 
 
-
-  // totalYearAmounts: number;
-  // totalMonthAmounts: number;
-
-
-
-
-  // currentDTTMAmounts: number;
-
   constructor(private _expenseService: ExpenseService, private _dttmService: DttmService) {
 
     this.currentDTTM = this._dttmService.getCurrentDTTM();
@@ -57,36 +48,12 @@ export class DashboardComponent implements OnInit {
       () => console.log('success getting total amounts')
       );
 
-    // this._expenseService.getTotalAmountsByDTTM(undefined, this.currentDTTM.year)
-    // //this._expenseService.getTotalAmountsByDTTM(undefined, 2016)
-    //   .subscribe(
-    //   response => this.totalYearAmounts = response,
-    //   err => console.log(err),
-    //   () => console.log('success getting current year amounts')
-    //   );
-
-
-    // this._expenseService.getTotalAmountsByDTTM(this.currentDTTM.month, this.currentDTTM.year)
-    //   .subscribe(
-    //   response => this.totalMonthAmounts = response,
-    //   err => console.log(err),
-    //   () => console.log('success getting current month amounts')
-    //   );
-
-
-      this._expenseService.getTotalAmountsByDTTM_Merge(this.currentDTTM.month, this.currentDTTM.year)
+      this._expenseService.getTotalAmountsByDTTM(this.currentDTTM.month, this.currentDTTM.year)
       .subscribe(
       response =>  this.totalAmounts = response,
       err => console.log(err),
       () => console.log('success getting current month amounts')
       );
-
-    // this._expenseService.getTotalAmountsByDTTM(this.currentDTTM.month, this.currentDTTM.year)
-    //   .subscribe(
-    //   response => this.currentDTTMAmounts = response,
-    //   err => console.log(err),
-    //   () => console.log('success getting current DTTM amounts')
-    //   );
 
   }
 
