@@ -201,6 +201,13 @@ export class ExpenseDb implements InMemoryDbService {
                         paymentDTTM: new Date('12/1//2016'),
                         createdDTTM: new Date('12/1//2016'),
                         updatedDTTM: new Date('12/1//2016'),
+                    },
+                    {
+                        amount: 81,
+                        note: 'Jan',
+                        paymentDTTM: new Date('1/1//2017'),
+                        createdDTTM: new Date('1/1//2017'),
+                        updatedDTTM: new Date('1/1//2017'),
                     }
                 ],
                 createdDTTM: new Date(),

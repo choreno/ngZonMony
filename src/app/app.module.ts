@@ -9,6 +9,7 @@ import 'hammerjs';
 
 //Services
 import { ExpenseService } from './services/expense.service';
+import { DttmService } from './services/dttm.service'; 
 
 //Routings
 import { RoutingModule } from './routing/routing.module';
@@ -16,17 +17,6 @@ import { RoutingModule } from './routing/routing.module';
 //InMemory Web API
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { ExpenseDb } from './db/expense.db';
-
-//rxjs
-//import './rxjs/rxjs-extensions';
-
-
-// rxjs - gat all rxjs library???
-// import * as Rx from 'rxjs/Rx';
-// import 'rxjs/Rx'; -- correct expression
-
-
-
 
 //Components
 import { AppComponent } from './app.component';
@@ -36,6 +26,7 @@ import { GroupingTestComponent } from './dashboard/groupingTest.component';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+
 
 
 @NgModule({
@@ -57,7 +48,7 @@ import { FooterComponent } from './footer/footer.component';
     InMemoryWebApiModule.forRoot(ExpenseDb, { delay: 0 }), // 1.5 second delay, 1500
     
   ],
-  providers: [ExpenseService],
+  providers: [ExpenseService, DttmService],
   bootstrap: [AppComponent]
 })
 
