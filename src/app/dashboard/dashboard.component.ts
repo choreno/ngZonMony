@@ -40,27 +40,16 @@ export class DashboardComponent implements OnInit {
       );
 
 
-    this._expenseService.getTotalAmounts(this.currentDTTM.month, 2017)
+    this._expenseService.getTotalAmounts(this.currentDTTM.month, this.currentDTTM.year)
       .subscribe(
       response => this.totalAmounts = response,
       err => console.log(err),
       () => console.log('success getting total amounts')
       );
-
-    // this._expenseService.getTotalAmounts()
-    //   .subscribe(
-    //   response => this.grandTotalAmounts = response,
-    //   err => console.log(err),
-    //   () => console.log('success getting total amounts')
-    //   );
-
-    // this._expenseService.getTotalAmountsByDTTM(this.currentDTTM.month, this.currentDTTM.year)
-    //   .subscribe(
-    //   response => this.totalAmounts = response,
-    //   err => console.log(err),
-    //   () => console.log('success getting current month amounts')
-    //   );
+   
 
   }
 
 }
+
+

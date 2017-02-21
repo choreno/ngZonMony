@@ -19,8 +19,16 @@ export class FolderComponent implements OnInit {
   constructor(private _expenseService: ExpenseService) { }
 
   ngOnInit() {
+    
+    
+    this._expenseService.getAllExpensesByFolder(this.allExpenses)
+      .subscribe(
+      response => this.folderExpenses = response,
+      err => console.log(err),
+      () => console.log('success loading expenses db')
+      );
 
-    //this.folderExpenses = this._expenseService.getAllExpensesByFolder(this.allExpenses); 
+
 
   }
 

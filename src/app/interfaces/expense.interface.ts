@@ -21,13 +21,13 @@ export interface IPayment {
     paymentDTTM: Date;
     createdDTTM: Date;
     updatedDTTM: Date;
-
 }
 
 export interface IGroupExpenses {
     folderName: string;
     expenses: IExpense[];
 }
+
 export interface ITotalAmounts {
     grand: number; 
     year: number;
