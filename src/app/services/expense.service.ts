@@ -73,7 +73,7 @@ export class ExpenseService {
 
     getAllExpensesByFolder(expense: IExpense[]): Observable<any> {
 
-         const src = Observable.from(expense);
+        const src = Observable.from(expense);
         // const result = src.map(x => x)
         //     .do(x => console.log(JSON.stringify(x, null, 2)))
         //     ;
@@ -87,7 +87,8 @@ export class ExpenseService {
         // }))
         // ;
 
-        return src.groupBy( x=>x.folderName).flatMap(group => group.reduce((acc, curr) => [...acc, curr], []))
+        return src.groupBy(x => x.folderName)
+            .flatMap(group => group.reduce((acc, curr) => [...acc, curr], []))
             .do(x => console.log(JSON.stringify(x, null, 2)))
     }
 

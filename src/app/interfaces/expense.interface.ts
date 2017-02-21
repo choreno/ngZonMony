@@ -10,7 +10,7 @@ export interface IExpense {
     payments: IPayment[];
     isPaidByCreditCard: boolean;
     createdDTTM: Date;
-    updatedDTTM: Date;
+    updatedDTTM: Date; 
 
 }
 

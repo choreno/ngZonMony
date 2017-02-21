@@ -108,8 +108,31 @@ export class ExpenseDb implements InMemoryDbService {
                 createdDTTM: new Date('1/1/2016'),
                 updatedDTTM: new Date('1/1/2016'),
             },
+
             {
                 id: 2,
+                folderName: 'Utility',
+                tabName: 'GRU',
+                tabNote: 'The eletric power provider in Gainesville',
+                dueDate: 15,
+                url: 'http://www.gru.com',
+                status: true,
+                isPaidByCreditCard: true,
+                payments: [
+                    {
+                        amount: 194.01,
+                        note: '#5801',
+                        paymentDTTM: new Date(),
+                        createdDTTM: new Date(),
+                        updatedDTTM: new Date(),
+                    }
+
+                ],
+                createdDTTM: new Date(),
+                updatedDTTM: new Date(),
+            },
+            {
+                id: 3,
                 folderName: 'Housing',
                 tabName: 'HOA',
                 tabNote: 'Garison Way #58',
@@ -209,28 +232,6 @@ export class ExpenseDb implements InMemoryDbService {
                         createdDTTM: new Date('1/1//2017'),
                         updatedDTTM: new Date('1/1//2017'),
                     }
-                ],
-                createdDTTM: new Date(),
-                updatedDTTM: new Date(),
-            },
-            {
-                id: 3,
-                folderName: 'Utility',
-                tabName: 'GRU',
-                tabNote: 'The eletric power provider in Gainesville',
-                dueDate: 15,
-                url: 'http://www.gru.com',
-                status: true,
-                isPaidByCreditCard: true,
-                payments: [
-                    {
-                        amount: 194.01,
-                        note: '#5801',
-                        paymentDTTM: new Date(),
-                        createdDTTM: new Date(),
-                        updatedDTTM: new Date(),
-                    }
-
                 ],
                 createdDTTM: new Date(),
                 updatedDTTM: new Date(),
