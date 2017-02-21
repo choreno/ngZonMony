@@ -23,9 +23,9 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GroupingTestComponent } from './dashboard/groupingTest.component';
 
-
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+// import { FolderComponent } from './folder/folder.component';
 
 
 
@@ -36,7 +36,7 @@ import { FooterComponent } from './footer/footer.component';
     HeaderComponent,
     FooterComponent,
     GroupingTestComponent,
-    
+    // FolderComponent,
   ],
   imports: [
     BrowserModule,

@@ -23,38 +23,65 @@ export class ExpenseService {
             .map(x => [].concat(...x.map(y => y.payments)));
     }
 
-    getTotalAmounts(): Observable<any> {
-        return this.getAllPayments()
-            .map(x => x.map(y => y.amount))
-            .map(x => x.reduce((acc, curr) => acc + curr));
-    }
-
-    getTotalAmountsByDTTM(currentMonth: number, currentYear: number): Observable<any> {
-
+    getTotalAmounts(currentMonth: number, currentYear: number): Observable<any> {
+        
         console.log(`Current Month/Year: '${currentMonth + 1}/${currentYear}'`);
-
+        
         return this.getAllPayments()
-            .map(x => x.filter((y) => {
-                let current = this._dttm.convertJsonToDTTM(y.paymentDTTM);
-                return current.year === currentYear;
-            }))
-            //.do(x => console.log(JSON.stringify(x, null, 2)))
-            .map(x =>
-                (
-                    {
-                        year: x.map(y => y.amount).reduce((acc, curr) => acc + curr),
-                        month: x.filter((y) => {
-                            let current = this._dttm.convertJsonToDTTM(y.paymentDTTM);
-                            return current.month === currentMonth;
-                        })
-                            .map(y => y.amount).reduce((acc, curr) => acc + curr)
+            .map(x => (
+                {
+                    grand:
+                    x.map(y => y.amount).reduce((acc, curr) => acc + curr),
 
-                    }
-                )
+                    year:
+                    x.filter(y => {
+                        let current = this._dttm.convertJsonToDTTM(y.paymentDTTM);
+                        return current.year === currentYear;
+                    })
+                        .map(y => y.amount).reduce((acc, curr) => acc + curr),
+                        
+
+                    month:
+                    x.filter(y => {
+                        let current = this._dttm.convertJsonToDTTM(y.paymentDTTM);
+                        return current.year === currentYear && current.month === currentMonth;
+                    })
+                        .map(y => y.amount).reduce((acc, curr) => acc + curr),
+                }
+            )
             )
             .do(x => console.log(JSON.stringify(x, null, 2)))
+            .catch(()=> {return Observable.empty(); })
             ;
     }
+
+
+    // getTotalAmountsByDTTM(currentMonth: number, currentYear: number): Observable<any> {
+
+    //     console.log(`Current Month/Year: '${currentMonth + 1}/${currentYear}'`);
+
+    //     return this.getAllPayments()
+    //         .map(x => x.filter((y) => {
+    //             let current = this._dttm.convertJsonToDTTM(y.paymentDTTM);
+    //             return current.year === currentYear;
+    //         }))
+    //         //.do(x => console.log(JSON.stringify(x, null, 2)))
+    //         .map(x =>
+    //             (
+    //                 {
+    //                     year: x.map(y => y.amount).reduce((acc, curr) => acc + curr),
+    //                     month: x.filter((y) => {
+    //                         let current = this._dttm.convertJsonToDTTM(y.paymentDTTM);
+    //                         return current.month === currentMonth;
+    //                     })
+    //                         .map(y => y.amount).reduce((acc, curr) => acc + curr)
+
+    //                 }
+    //             )
+    //         )
+    //         //.do(x => console.log(JSON.stringify(x, null, 2)))
+    //         ;
+    // }
 
 
     getAllExpensesByFolderName(expense: IExpense[]): IGroupExpenses[] {
@@ -71,6 +98,12 @@ export class ExpenseService {
 
         return result;
     }
+
+    // getAllExpensesByFolder(expense: IExpense[]): Observable<any> {
+
+    //     //return expense.map(x=>x.folderName);
+    // }
+
 
 }
 

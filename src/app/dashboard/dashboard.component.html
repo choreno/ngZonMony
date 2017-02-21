@@ -1,15 +1,16 @@
 
 <h2>{{clock | async}}</h2>
 
-<h4>Grand Total Amounts: {{grandTotalAmounts | currency:'USD':true}}</h4>
-<!--<h4>Total Year Amounts ({{currentDTTM.year}}) : {{totalYearAmounts | currency:'USD':true}}</h4>
-<h4>Total Month Amounts ({{currentDTTM.month + 1}}) : {{totalMonthAmounts | currency:'USD':true}}</h4>-->
-
-
+<h4>Grand Total Amounts: {{totalAmounts.grand | currency:'USD':true}}</h4>
 <h4>Total Year Amounts ({{currentDTTM.year}}) : {{totalAmounts.year | currency:'USD':true}}</h4>
 <h4>Total Month Amounts ({{currentDTTM.month + 1}}) : {{totalAmounts.month | currency:'USD':true}}</h4>
 
 
+<!--<app-folder [allExpenses]='expenses'></app-folder>-->
 
-<!--
-<app-groupingTest [data]='expenses'></app-groupingTest>-->
+<!--<app-groupingTest [data]='expenses'></app-groupingTest>-->
+
+
+
+
+

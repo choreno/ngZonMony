@@ -28,10 +28,21 @@ export interface IGroupExpenses {
     folderName: string;
     expenses: IExpense[];
 }
-
-
 export interface ITotalAmounts {
-
+    grand: number; 
     year: number;
     month: number;
 }
+
+export interface IFolder {
+    folderName: string ;
+    //folderTotalAmounts: number ; 
+    expenses: IExpense[];
+    //tabs: ITab[]; 
+}
+
+export interface ITab {
+    tabName: string; 
+    tabTotalAmounts: number; 
+}
+
