@@ -13,7 +13,7 @@ import { Observable } from 'rxjs/Rx';
 })
 export class DashboardComponent implements OnInit {
 
-  clock = Observable.interval(10000);
+  clock = Observable.interval(1000);
 
   currentDTTM: IDttm;
 

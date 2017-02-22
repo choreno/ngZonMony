@@ -17,15 +17,21 @@ export class FolderComponent implements OnInit {
 
   folderExpenses: IFolder[];
 
+  //For Observable
+  folderExpensesObs ;
+
+
   constructor(private _expenseService: ExpenseService) { }
 
   ngOnInit() {
-    
-    
-    this.folderExpenses = this._expenseService.getAllExpensesByFolder(this.allExpenses); 
-    // this._expenseService.getAllExpensesByFolder(this.allExpenses)
+
+
+    this.folderExpenses = this._expenseService.getAllExpensesByFolder(this.allExpenses);
+    console.log(this.folderExpenses); 
+    // this._expenseService.getAllExpensesByFolderObs(this.allExpenses)
     //   .subscribe(
-    //   response => this.folderExpenses = response,
+    //   response => this.folderExpensesObs = response,
+    //   //response => response,
     //   err => console.log(err),
     //   () => console.log('success loading expenses db')
     //   );

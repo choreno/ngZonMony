@@ -125,7 +125,7 @@ export class ExpenseDb implements InMemoryDbService {
                 status: [
                     {
                         activatedDTTM: new Date('1/1/2016'),
-                        deactivatedDTTM: null
+                        deactivatedDTTM: null,
                     }
                 ],
                
@@ -152,7 +152,7 @@ export class ExpenseDb implements InMemoryDbService {
                 status: [
                     {
                         activatedDTTM: new Date('1/1/2016'),
-                        deactivatedDTTM: null
+                        deactivatedDTTM: new Date('3/1/2016')
                     }
                 ],
 

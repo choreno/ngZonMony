@@ -56,41 +56,71 @@ export class ExpenseService {
     }
 
 
-    // getAllExpensesByFolderName(expense: IExpense[]): IGroupExpenses[] {
-
-    //     if (!expense) {
-    //         return;
-    //     }
-
-    //     const folderNames = new Set(expense.map(x => x.folderName));
-    //     const result = Array.from(folderNames).map(x => ({
-    //         folderName: x,
-    //         expenses: expense.filter(exp => exp.folderName === x)
-    //     }));
-
-    //     return result;
-    // }
-
-
     getAllExpensesByFolder(expense: IExpense[]): IFolder[] {
 
-
+        if (!expense) {
+            return;
+        }
 
         const folderNames = new Set(expense.map(x => x.folderName));
 
-        const result = Array.from(folderNames).map(x => ({
-            folderName: x,
-            expenses: expense.filter(exp => exp.folderName === x)
-        }))
-        ;
+        const result = Array.from(folderNames).map(x =>
+            (
+                {
+                    folderName: x,
+
+                    expenses:
+                    expense.filter(y => {
+
+                        let isactivated = true;
+
+                        y.status.forEach(z => {
+
+                            if (z.deactivatedDTTM != null) {
+                                console.log(z.deactivatedDTTM);
+                                isactivated = false;
+                                return false;
+                            }
+                        });
+
+                        return y.folderName === x && isactivated;
+                    }
+                    ),
+
+                    currentPayment: 
+                    expense.filter(y => y.folderName === x && y.tabName
+                        
+                    
+                        // .filter(z => { 
+                        //     z.forEach(a => {
+                        //         let pMonth = a.paymentDTTM; 
+                        //         let pp = pMonth.getMonth() ; 
+                        //         console.log(pp); 
+                        //         let cMonth = new Date().getMonth();
+                        //         return cMonth === pp;
+                        //     });
+                        // })
+
+                }
+            )
+        )
+            ;
+
+        return result;
+
+    }
 
 
-        return result; 
+    getAllExpensesByFolderObs(expense: IExpense[]) {    // cbc -- obsoleted at later ????
 
-        // const src = Observable.from(expense);
-        // return src.groupBy(x => x.folderName)
-        //     .flatMap(x => x.reduce((acc, curr) => [...acc, curr], []))
-        //     .do(x => console.log(JSON.stringify(x, null, 2)))
+
+        const src = Observable.from(expense);
+        return src.groupBy(x => x.folderName)
+            .flatMap(x => x.reduce((acc, curr) => [...acc, curr], []))
+            .do(x => console.log(JSON.stringify(x, null, 2)))
+            ;
+
+
     }
 
 

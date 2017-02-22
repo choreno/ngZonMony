@@ -1,5 +1,5 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { IExpense } from '../interfaces/expense.interface';
+import { IExpense } from '../dashboard/dashboard.interface';
 
 
 export class ExpenseDb implements InMemoryDbService {
