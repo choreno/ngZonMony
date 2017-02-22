@@ -21,12 +21,13 @@ export class FolderComponent implements OnInit {
   ngOnInit() {
     
     
-    this._expenseService.getAllExpensesByFolder(this.allExpenses)
-      .subscribe(
-      response => this.folderExpenses = response,
-      err => console.log(err),
-      () => console.log('success loading expenses db')
-      );
+    this.folderExpenses = this._expenseService.getAllExpensesByFolder(this.allExpenses); 
+    // this._expenseService.getAllExpensesByFolder(this.allExpenses)
+    //   .subscribe(
+    //   response => this.folderExpenses = response,
+    //   err => console.log(err),
+    //   () => console.log('success loading expenses db')
+    //   );
 
 
 

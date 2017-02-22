@@ -71,25 +71,23 @@ export class ExpenseService {
     }
 
 
-    getAllExpensesByFolder(expense: IExpense[]): Observable<any> {
+    getAllExpensesByFolder(expense: IExpense[]): IFolder[] {
 
-        const src = Observable.from(expense);
-        // const result = src.map(x => x)
+
+
+        const folderNames = new Set(expense.map(x => x.folderName));
+
+        const result = Array.from(folderNames).map(x => ({
+            folderName: x,
+            expenses: expense.filter(exp => exp.folderName === x)
+        }))
+        ;
+
+
+        // const src = Observable.from(expense);
+        // return src.groupBy(x => x.folderName)
+        //     .flatMap(x => x.reduce((acc, curr) => [...acc, curr], []))
         //     .do(x => console.log(JSON.stringify(x, null, 2)))
-        //     ;
-
-
-        // const folderNames = new Set(expense.map(x => x.folderName));
-
-        // const result = Array.from(folderNames).map(x => ({
-        //     folderName: x,
-        //     expenses: expense.filter(exp => exp.folderName === x)
-        // }))
-        // ;
-
-        return src.groupBy(x => x.folderName)
-            .flatMap(group => group.reduce((acc, curr) => [...acc, curr], []))
-            .do(x => console.log(JSON.stringify(x, null, 2)))
     }
 
 
@@ -99,6 +97,24 @@ export class ExpenseService {
 
 
 // A good example 
+
+
+//Error Handling ... !!!!
+
+// const invalidJsonString = '{foo":"bar"}';
+
+// Rx.Observable.of(invalidJsonString)
+// .map(string => JSON.parse(string))
+// .catch((error) => Rx.Observable.of({
+//   error: `There was an error parsing JSON`
+// }))
+// .subscribe(result => console.log(result),
+//            error => console.error(`Error! ${error}`),
+//            () => console.log(`done`))
+// Outputs:
+
+// { error: 'There was an error parsing JSON' }
+// done
 
 
 
