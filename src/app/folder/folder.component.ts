@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ExpenseService } from '../services/expense.service';
-import { IExpense, IFolder } from '../interfaces/expense.interface';
+import { IExpense } from '../dashboard/dashboard.interface';
+import { IFolder } from '../folder/folder.interface';
 
 
 @Component({

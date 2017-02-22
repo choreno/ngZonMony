@@ -2,17 +2,33 @@ export interface IExpense {
 
     id: number;
     folderName: string;
+    tab: ITab[];
     tabName: string;
     tabNote: string;
     dueDate: number;
     url: string;
-    status: boolean;
+    status: ITabStatus[];
     payments: IPayment[];
     isPaidByCreditCard: boolean;
     createdDTTM: Date;
     updatedDTTM: Date; 
 
 }
+
+export interface ITab {
+    name: string; 
+    note: number; 
+    dueDate: number;
+    url: string; 
+    isPaidByCreditCard: boolean;
+    status: ITabStatus[];
+}
+
+export interface ITabStatus{
+    activatedDTTM: Date;
+    deactivatedDTTM: Date;
+}
+
 
 export interface IPayment {
 
@@ -41,8 +57,4 @@ export interface IFolder {
     //tabs: ITab[]; 
 }
 
-export interface ITab {
-    tabName: string; 
-    tabTotalAmounts: number; 
-}
 

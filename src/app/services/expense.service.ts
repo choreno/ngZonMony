@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { IExpense, IGroupExpenses, IPayment, IFolder } from '../interfaces/expense.interface';
+import { IExpense } from '../dashboard/dashboard.interface';
+import { IFolder } from '../folder/folder.interface';
 
 import { Observable } from 'rxjs/Rx';
 import { DttmService } from './dttm.service';
@@ -55,20 +56,20 @@ export class ExpenseService {
     }
 
 
-    getAllExpensesByFolderName(expense: IExpense[]): IGroupExpenses[] {
+    // getAllExpensesByFolderName(expense: IExpense[]): IGroupExpenses[] {
 
-        if (!expense) {
-            return;
-        }
+    //     if (!expense) {
+    //         return;
+    //     }
 
-        const folderNames = new Set(expense.map(x => x.folderName));
-        const result = Array.from(folderNames).map(x => ({
-            folderName: x,
-            expenses: expense.filter(exp => exp.folderName === x)
-        }));
+    //     const folderNames = new Set(expense.map(x => x.folderName));
+    //     const result = Array.from(folderNames).map(x => ({
+    //         folderName: x,
+    //         expenses: expense.filter(exp => exp.folderName === x)
+    //     }));
 
-        return result;
-    }
+    //     return result;
+    // }
 
 
     getAllExpensesByFolder(expense: IExpense[]): IFolder[] {
@@ -83,6 +84,8 @@ export class ExpenseService {
         }))
         ;
 
+
+        return result; 
 
         // const src = Observable.from(expense);
         // return src.groupBy(x => x.folderName)

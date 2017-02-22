@@ -1,5 +1,5 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { IExpense } from '../dashboard/dashboard.interface';
+import { IExpense } from '../interfaces/expense.interface';
 
 
 export class ExpenseDb implements InMemoryDbService {
@@ -16,13 +16,7 @@ export class ExpenseDb implements InMemoryDbService {
                 tabNote: 'Garison Way #58, Fixed:5.5%, 30yrs',
                 dueDate: 30,
                 url: 'http://wellsfargo.com',
-                status: [
-                    {
-                        activatedDTTM: new Date('1/1/2016'),
-                        deactivatedDTTM: null
-                        
-                    }
-                ],
+                status: true,
                 isPaidByCreditCard: false,
                 payments: [
                     {
@@ -121,14 +115,8 @@ export class ExpenseDb implements InMemoryDbService {
                 tabNote: 'The eletric power provider in Gainesville',
                 dueDate: 15,
                 url: 'http://www.gru.com',
+                status: true,
                 isPaidByCreditCard: true,
-                status: [
-                    {
-                        activatedDTTM: new Date('1/1/2016'),
-                        deactivatedDTTM: null
-                    }
-                ],
-               
                 payments: [
                     {
                         amount: 194.01,
@@ -149,13 +137,7 @@ export class ExpenseDb implements InMemoryDbService {
                 tabNote: 'Garison Way #58',
                 dueDate: 30,
                 url: null,
-                status: [
-                    {
-                        activatedDTTM: new Date('1/1/2016'),
-                        deactivatedDTTM: null
-                    }
-                ],
-
+                status: true,
                 isPaidByCreditCard: false,
                 payments: [
                     {
@@ -260,13 +242,7 @@ export class ExpenseDb implements InMemoryDbService {
                 tabNote: 'Chase Freedom Card',
                 dueDate: 30,
                 url: 'http://www.chase.com',
-                status: [
-                    {
-                        activatedDTTM: new Date('1/1/2016'),
-                        deactivatedDTTM: null
-                    }
-                ],
-
+                status: true,
                 isPaidByCreditCard: false,
                 payments: [
                     {
@@ -288,13 +264,7 @@ export class ExpenseDb implements InMemoryDbService {
                 tabNote: 'Mobile Commnunication',
                 dueDate: 30,
                 url: 'http://verizonwireless.com',
-                status: [
-                    {
-                        activatedDTTM: new Date('1/1/2016'),
-                        deactivatedDTTM: null
-                    }
-                ],
-
+                status: true,
                 isPaidByCreditCard: true,
                 payments: [
                     {

@@ -21,8 +21,6 @@ import { ExpenseDb } from './db/expense.db';
 //Components
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { GroupingTestComponent } from './dashboard/groupingTest.component';
-
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FolderComponent } from './folder/folder.component';
@@ -35,7 +33,6 @@ import { FolderComponent } from './folder/folder.component';
     DashboardComponent,
     HeaderComponent,
     FooterComponent,
-    GroupingTestComponent,
     FolderComponent,
   ],
   imports: [

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExpenseService } from '../services/expense.service';
 import { DttmService } from '../services/dttm.service';
-import { IExpense, IGroupExpenses, IPayment, ITotalAmounts } from '../interfaces/expense.interface';
-import { IDttm } from '../interfaces/dttm.interface';
+import { IExpense, ITotalAmounts, IDttm } from './dashboard.interface';
 
 import { Observable } from 'rxjs/Rx';
 

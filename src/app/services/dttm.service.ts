@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IDttm } from '../interfaces/dttm.interface';
+import { IDttm } from '../dashboard/dashboard.interface';
 
 @Injectable()
 export class DttmService {
